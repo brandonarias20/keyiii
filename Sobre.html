@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Sobre Animado</title>
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background: linear-gradient(135deg, #f5e0ff, #d4e3ff);
+        font-family: "Poppins", sans-serif;
+    }
+
+    .container {
+        text-align: center;
+        width: 100%;
+        max-width: 400px;
+        padding: 20px;
+    }
+
+    .envelope {
+        position: relative;
+        width: 200px;
+        height: 140px;
+        margin: 0 auto 20px;
+        background: #ffffff;
+        border: 2px solid #ccc;
+        border-radius: 10px;
+        overflow: hidden;
+        cursor: pointer;
+        transition: transform 0.4s ease;
+    }
+
+    .envelope:hover {
+        transform: scale(1.05);
+    }
+
+    .flap {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 70%;
+        background: #ff8fab;
+        clip-path: polygon(0 0, 100% 0, 50% 100%);
+        transition: transform 0.6s ease;
+        transform-origin: top;
+    }
+
+    .card {
+        position: absolute;
+        bottom: -100%;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 85%;
+        background: white;
+        padding: 15px;
+        border-radius: 8px;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+        transition: bottom 0.7s ease;
+    }
+
+    .btn-abrir {
+        background: #ff5c8a;
+        color: white;
+        padding: 12px 20px;
+        border: none;
+        border-radius: 25px;
+        font-size: 16px;
+        cursor: pointer;
+        transition: 0.3s;
+        width: 100%;
+        max-width: 200px;
+    }
+
+    .btn-abrir:hover {
+        background: #ff3f72;
+    }
+
+    .open .flap {
+        transform: rotateX(180deg);
+    }
+
+    .open .card {
+        bottom: 10px;
+    }
+
+    .mensaje {
+        font-size: 15px;
+        color: #444;
+        line-height: 1.4em;
+    }
+</style>
+</head>
+<body>
+
+<div class="container">
+    <div class="envelope" id="sobre">
+        <div class="flap"></div>
+        <div class="card">
+            <p class="mensaje">
+                Para keyita ❤️<br><br>
+                No solo las estrellas brillan, aveces eres tu❤️
+            </p>
+        </div>
+    </div>
+
+    <button class="btn-abrir" onclick="abrirCarta()">Abrir</button>
+</div>
+
+<script>
+function abrirCarta() {
+    document.getElementById("sobre").classList.toggle("open");
+}
+</script>
+
+</body>
+</html>
